@@ -55,10 +55,15 @@ class Menu(Scrollable):
         super().deactivate()
         super().clear()
 
-        for name in self._current:
-            def on_select():
-                if isinstance(self._current[name], dict):
-                    self._change_path(name)
+        for name, value in self._current.items():
+            on_select = None
+
+            if isinstance(value, Mapping):
+                on_select = lambda: self._change_path(name)
+            elif isinstance(value, Callable):
+                on_select = lambda: value()
+            elif value is None:
+                on_select = lambda: None
 
             super().add_children(MenuItem(name, on_select))
 

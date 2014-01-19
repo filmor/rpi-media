@@ -4,6 +4,8 @@ class Application:
     def __init__(self, initial_widget):
         self._widget = initial_widget
 
+        self._running = False
+
         self._adapter = cec.Adapter()
         # self._adapter.open()
 
@@ -33,4 +35,9 @@ class Application:
         bcm.host_init()
         self._adapter.open()
         dim = bcm.graphics_get_display_size(0)
+
+    def run(self):
+        self._running = True
+        while self._running:
+            time.sleep(1)
 
