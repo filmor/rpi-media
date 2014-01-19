@@ -1,4 +1,5 @@
 from widgets import Scrollable, TextRect
+from collections import Callable, Mapping
 import cec
 
 class MenuItem(TextRect):

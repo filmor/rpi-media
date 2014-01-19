@@ -1,4 +1,4 @@
-import cec
+import cec, time
 
 class Application:
     def __init__(self, initial_widget):
@@ -32,11 +32,12 @@ class Application:
         self._widget.activate()
 
     def render(self):
-        bcm.host_init()
+        #bcm.host_init()
         self._adapter.open()
-        dim = bcm.graphics_get_display_size(0)
+        #dim = bcm.graphics_get_display_size(0)
 
     def run(self):
+        self.render()
         self._running = True
         while self._running:
             time.sleep(1)
