@@ -1,5 +1,5 @@
-from app import Application
-from menu import Menu
+from .app import Application
+from .menu import Menu
 
 test_menu = {
         "bla": {

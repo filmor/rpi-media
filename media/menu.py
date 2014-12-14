@@ -1,4 +1,4 @@
-from widgets import Scrollable, TextRect
+from .widgets import Scrollable, TextRect
 from collections import Callable, Mapping
 import cec
 
